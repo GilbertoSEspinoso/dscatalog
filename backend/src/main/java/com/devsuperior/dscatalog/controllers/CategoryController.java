@@ -1,6 +1,6 @@
 package com.devsuperior.dscatalog.controllers;
 
-import com.devsuperior.dscatalog.entities.Category;
+import com.devsuperior.dscatalog.DTO.CategoryDTO;
 import com.devsuperior.dscatalog.services.CategoryService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,8 +20,8 @@ public class CategoryController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Category>> findAll() {
-        List<Category> obj = service.findAll();
+    public ResponseEntity<List<CategoryDTO>> findAll() {
+        List<CategoryDTO> obj = service.findAll();
         return ResponseEntity.ok(obj);
     }
 }
