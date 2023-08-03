@@ -1,24 +1,27 @@
 package com.devsuperior.dscatalog.controllers;
 
 import com.devsuperior.dscatalog.entities.Category;
-import com.devsuperior.dscatalog.repositories.CategoryRepository;
+import com.devsuperior.dscatalog.services.CategoryService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(value = "/categories")
 public class CategoryController {
 
-    CategoryRepository repository;
+    CategoryService service;
 
-    public CategoryController(CategoryRepository repository) {
-        this.repository = repository;
+    public CategoryController(CategoryService service) {
+        this.service = service;
     }
 
     @GetMapping
-    public ResponseEntity<Category> findAll() {
-        return null;
+    public ResponseEntity<List<Category>> findAll() {
+        List<Category> obj = service.findAll();
+        return ResponseEntity.ok(obj);
     }
 }

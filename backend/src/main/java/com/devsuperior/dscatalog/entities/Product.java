@@ -2,7 +2,6 @@ package com.devsuperior.dscatalog.entities;
 
 import jakarta.persistence.*;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -75,7 +74,7 @@ public class Product {
     }
 
     public List<Category> getCategories() {
-        return categories;
+        return (List<Category>) categories;
     }
 
     @Override
